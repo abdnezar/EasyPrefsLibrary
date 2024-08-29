@@ -45,6 +45,8 @@ EasyPreferences.putObject( PrefsKeys. USER_ PROFILE. name,  userProfile)
 val retrievedProfile: UserProfile? = EasyPreferences.getObject( PrefsKeys. USER_ PROFILE. name,  UserProfile::class.java) 
 ```
 
+
 ## License
-MIT, Apache 2.0
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
