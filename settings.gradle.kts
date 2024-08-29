@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "EasyPrefsLibrary"
 include(":app")
-//include(":easyprefs")
+include(":easyprefs")

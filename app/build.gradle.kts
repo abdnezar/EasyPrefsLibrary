@@ -35,5 +35,5 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-//    implementation(project(":easyprefs"))
+    implementation(project(":easyprefs"))
 }

@@ -7,9 +7,9 @@ plugins {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.github.abdnezar" // Replace with your GitHub username
-            artifactId = "EasyPrefs"
-            version = "1.0.0" // Replace with your release tag or version
+            groupId = "com.github.abdnezar"
+            artifactId = "EasyPrefsLibrary"
+            version = "1.0.1"
 
             afterEvaluate {
                 from(components["release"])
