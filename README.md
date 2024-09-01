@@ -1,3 +1,6 @@
+[![Android CI - Build AAR](https://github.com/abdnezar/EasyPrefsLibrary/actions/workflows/android.yml/badge.svg)](https://github.com/abdnezar/EasyPrefsLibrary/actions/workflows/android.yml)
+[![](https://jitpack.io/v/abdnezar/EasyPrefsLibrary.svg)](https://jitpack.io/#abdnezar/EasyPrefsLibrary)
+
 # EasyPrefs
 A lightweight Android library that simplifies working with SharedPreferences,providing type safety, object serialization, and a convenient API for storing and retrieving data.
 
