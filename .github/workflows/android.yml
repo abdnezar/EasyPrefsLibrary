@@ -1,4 +1,4 @@
-name: Android CI - Build Apk & AAR
+name: Android CI - Build AAR
 
 on:
   push:
@@ -25,24 +25,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # Build APK for app module
-    - name: Build APK
-      run: ./gradlew :app:assembleRelease
-
-    # Archive APK
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-release-apk
-        path: app/build/outputs/apk/release/*.apk
-
     # Build AAR for spinview module
     - name: Build AAR
-      run: ./gradlew :spinview:assembleRelease
+      run: ./gradlew :easyprefs:assembleRelease
 
     # Archive AAR
     - name: Upload AAR
       uses: actions/upload-artifact@v3
       with:
-        name: spinview-release-aar
-        path: spinview/build/outputs/aar/*.aar
+        name: easyprefs-release-aar
+        path: easyprefs/build/outputs/aar/*.aar
