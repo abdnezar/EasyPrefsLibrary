@@ -1,11 +1,12 @@
-name: Android CI
+name: Android CI - Build Apk & AAR
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+  workflow_dispatch: 
+ 
 jobs:
   build:
 
@@ -13,14 +14,35 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+    - name: set up JDK 18
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: '18'
         distribution: 'temurin'
         cache: gradle
 
+    # add chmod to gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+
+    # Build APK for app module
+    - name: Build APK
+      run: ./gradlew :app:assembleRelease
+
+    # Archive APK
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-release-apk
+        path: app/build/outputs/apk/release/*.apk
+
+    # Build AAR for spinview module
+    - name: Build AAR
+      run: ./gradlew :spinview:assembleRelease
+
+    # Archive AAR
+    - name: Upload AAR
+      uses: actions/upload-artifact@v3
+      with:
+        name: spinview-release-aar
+        path: spinview/build/outputs/aar/*.aar
